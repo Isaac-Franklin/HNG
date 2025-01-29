@@ -1,6 +1,6 @@
-# HNG12 Internship Project Delivery Repo
+## 👨🏿‍💻 HNG12 Internship Project Delivery Repo
 
-## 🚀 Overview
+## 🔭 Overview
 This is the official repo for housing files and docs for tasks and projects from the  HNG12 internship
 
 ## 🔧 Tech Stack
@@ -8,7 +8,7 @@ This is the official repo for housing files and docs for tasks and projects from
 - Firebase (Auth, Firestore)
 - Django (Backend)
 
-## 🚀 
+## 💻 To run any project
 ```sh
 git clone https://github.com/Isaac-Franklin/HNG.git
 cd subProjectName
@@ -16,7 +16,7 @@ flutter pub get
 flutter run
 ```
 
-## DETAILS UNIQUE TO HNGTASK ZERO SUBMISSION START HERE
+## 0️⃣ DETAILS UNIQUE TO HNGTASK ZERO SUBMISSION START HERE
 -- App submission is in the subdirectory called: HNGTASKO. App name is: taskzeroapp.
 
 -- To run the taskzeroapp project on your local machine, kindly follow  the steps below
