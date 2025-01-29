@@ -17,13 +17,14 @@ flutter run
 ```
 
 ## DETAILS UNIQUE TO HNGTASK ZERO SUBMISSION START HERE
-# App submission is in the subdirectory called: HNGTASKO. App name is: taskzeroapp.
+-- App submission is in the subdirectory called: HNGTASKO. App name is: taskzeroapp.
 
-# To run the taskzeroapp project on your local machine, kindly follow  the steps below
+-- To run the taskzeroapp project on your local machine, kindly follow  the steps below
 
 cd taskzeroapp
 run flutter pub get
 flutter run
+
 
 ## To run the HNGTASK1 project in https://appetize.io/, kindly follow the steps below
 
@@ -41,7 +42,7 @@ Hire a Mobile UI/UX developer: https://hng.tech/hire/mobile-ui-ux-developers
 Hire an iOS developer: https://hng.tech/hire/ios-developers
 
 
-## DETAILS UNIQUE TO HNGTASK ZERO SUBMISSION END HERE
+
 
 
 
