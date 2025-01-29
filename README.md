@@ -27,7 +27,7 @@ flutter pub get
 flutter run
 
 
-## To run the HNGTASK1 project in https://appetize.io/, kindly follow the steps below
+## To run the HNGTASK0 project in https://appetize.io/, kindly follow the steps below
 
 Visit: https://appetize.io/app/b_3bpp4jm53ua7ofluwoh4jtdxhu
 
