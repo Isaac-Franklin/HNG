@@ -8,7 +8,7 @@ This is the official repo for housing files and docs for tasks and projects from
 - Firebase (Auth, Firestore)
 - Django (Backend)
 
-## 🚀 Overview
+## 🚀 
 ```sh
 git clone https://github.com/Isaac-Franklin/HNG.git
 cd subProjectName
@@ -20,9 +20,10 @@ flutter run
 -- App submission is in the subdirectory called: HNGTASKO. App name is: taskzeroapp.
 
 -- To run the taskzeroapp project on your local machine, kindly follow  the steps below
-
+clone repo by running the command in CMD interface or terminal: git clone https://github.com/Isaac-Franklin/HNG.git
+Then run the following command in the terminal:
 cd taskzeroapp
-run flutter pub get
+flutter pub get
 flutter run
 
 
