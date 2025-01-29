@@ -1,13 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-<!-- permissions request starts here -->
-    <uses-permission android:name="android.permission.INTERNET"/>
-<!-- permissions request ends here -->
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    
     <application
         android:label="taskzeroapp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -44,11 +44,7 @@
     <queries>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
-            <data android:mimeType="text/plain"/>        
-            <!-- WEBVIEW SETUP ENTRY STARTS HERE -->
-            <action android:name="android.intent.action.VIEW"/>
-            <data android:scheme="https"/>
-            <!-- WEBVIEW SETUP ENTRY ENDS HERE -->
+            <data android:mimeType="text/plain"/>
         </intent>
     </queries>
 </manifest>
