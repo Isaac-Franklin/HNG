@@ -16,10 +16,10 @@ flutter pub get
 flutter run
 ```
 
-# DETAILS UNIQUE TO HNGTASK ZERO SUBMISSION STARTS HERE
-#App submission is in the subdirectory called: HNGTASKO. App name is: taskzeroapp.
+## DETAILS UNIQUE TO HNGTASK ZERO SUBMISSION START HERE
+#App submission is in the subdirectory called: taskzeroapp.
 
-#To run the taskzeroapp project in your local machine, kindly follow  the steps below
+#To run the taskzeroapp project on your local machine, kindly follow  the steps below
 
 cd taskzeroapp
 flutter pub get
