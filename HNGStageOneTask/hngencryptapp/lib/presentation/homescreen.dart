@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-            "Boss do the calms!, You've not filled the form properly.",
+            "Boss do the calms! You've not filled the form properly.",
           ),
         ),
       );
@@ -52,6 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Text(
+                'Hi there!',
+                style: TextStyle(fontSize: 24),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               const Text(
                 'Kindly fill the form below to encrypt data:',
               ),

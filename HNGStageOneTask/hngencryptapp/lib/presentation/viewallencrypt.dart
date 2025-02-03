@@ -92,7 +92,7 @@ class _ViewEncryptionHistoryState extends State<ViewEncryptionHistory> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text("No data found."));
+            return const Center(child: Text("No encryption created yet."));
           }
 
           return ListView(
@@ -261,7 +261,7 @@ class _ViewEncryptionHistoryState extends State<ViewEncryptionHistory> {
           title: const Text("Decryption Result"),
           content: SelectableText(
             decryptedText,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 16),
           ),
           actions: [
             TextButton(

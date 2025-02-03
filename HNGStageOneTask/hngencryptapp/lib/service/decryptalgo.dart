@@ -9,7 +9,7 @@ class DecryptData {
 
     String? storedValue = prefs.getString(secretKey);
     if (storedValue == null) {
-      return 'No data found!';
+      return 'Kpele, wrong Secret Key. Kindly try again!';
     }
     print(userEncryptedText);
 
