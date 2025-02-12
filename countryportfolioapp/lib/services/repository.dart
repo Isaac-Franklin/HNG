@@ -11,9 +11,9 @@ class RepositoryServices {
   final dio = ApiService().dio;
 
 // Fetch all countries information starts here
-  Future<AllCountriesListResponse> fetchCountryListFxn() async {
-    const String countriesSearchUrl =
-        'https://restfulcountries.com/api/v1/countries';
+  Future<AllCountriesListResponse> fetchCountryListFxn(pagecount, page) async {
+    String countriesSearchUrl =
+        'https://restfulcountries.com/api/v1/countries?per_page=$pagecount&page=$page';
     final List<CountryList> countryDataList = [];
 
     // API request

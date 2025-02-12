@@ -24,8 +24,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     print('Fetching country data...');
     emit(LoadingState(messsage: 'Loading...'));
     // fetch country list algorithm starts here
-    final countryDataFetchResponse =
-        await _repositoryServices.fetchCountryListFxn();
+    final countryDataFetchResponse = await _repositoryServices
+        .fetchCountryListFxn(event.pagecount, event.page);
 
     if (countryDataFetchResponse.statusCode != '200') {
       emit(LoadingErrorState(errorMessage: countryDataFetchResponse.message));

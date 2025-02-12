@@ -22,11 +22,15 @@ ThemeManager _themeManager = ThemeManager();
 
 class _HomePageState extends State<HomePage> {
   final TextEditingController _searchController = TextEditingController();
+  int _selectedIndex = 0;
+  late int pageNumber = 1;
   // Timer? _debounce;
   @override
   void initState() {
     super.initState();
-    context.read<HomeBloc>().add(FetchCountryListEvent());
+    context
+        .read<HomeBloc>()
+        .add(FetchCountryListEvent(pagecount: 10, page: pageNumber));
     _themeManager.addListener(themeListener);
 
     // monitor search bar trigger
@@ -58,10 +62,48 @@ class _HomePageState extends State<HomePage> {
       // _debounce = Timer(const Duration(milliseconds: 300), () {
       // });
     } else {
-      context.read<HomeBloc>().add(FetchCountryListEvent());
+      context
+          .read<HomeBloc>()
+          .add(FetchCountryListEvent(pagecount: 10, page: 1));
     }
   }
+  //
 
+  // pagination
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      if (_selectedIndex == 0) {
+        setState(() {
+          if (pageNumber >= 2) {
+            pageNumber -= 1;
+          } else {
+            setState(() {
+              pageNumber = 1;
+            });
+            print('pageNumber is at one');
+          }
+        });
+        context
+            .read<HomeBloc>()
+            .add(FetchCountryListEvent(pagecount: 10, page: pageNumber));
+        // context.read<MemberareasBloc>().add(LoadDashboardViewEvent());
+      } else if (_selectedIndex == 1) {
+        print('1 clicked');
+        // context.read<MemberareasBloc>().add(LoadSearchViewEvent());
+      } else if (_selectedIndex == 2) {
+        print('pageNumber');
+        print(pageNumber);
+        print('2 clicked');
+        setState(() {
+          pageNumber += 1;
+        });
+        context
+            .read<HomeBloc>()
+            .add(FetchCountryListEvent(pagecount: 10, page: pageNumber));
+      }
+    });
+  }
   //
 
   @override
@@ -278,7 +320,9 @@ class _HomePageState extends State<HomePage> {
                     const Text('Error fetching country list'),
                     ElevatedButton(
                       onPressed: () {
-                        context.read<HomeBloc>().add(FetchCountryListEvent());
+                        context
+                            .read<HomeBloc>()
+                            .add(FetchCountryListEvent(pagecount: 10, page: 1));
                       },
                       child: const Text('Retry'),
                     ),
@@ -396,6 +440,52 @@ class _HomePageState extends State<HomePage> {
               );
             }
           },
+        ),
+        bottomNavigationBar: Container(
+          height: 60,
+          margin: EdgeInsets.zero,
+          decoration: const BoxDecoration(
+            border: Border(
+              top: BorderSide(
+                width: 2,
+                color: Colors.grey,
+              ),
+            ),
+          ),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            items: <BottomNavigationBarItem>[
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.arrow_back),
+                label: 'Back',
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.language),
+                label: 'Page $pageNumber',
+              ),
+              const BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.arrow_forward_rounded,
+                ),
+                label: 'Next',
+              ),
+            ],
+            selectedItemColor: const Color.fromRGBO(255, 206, 49, 1),
+            unselectedItemColor: Colors.grey[700],
+            showUnselectedLabels: true,
+            selectedLabelStyle: const TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'montserrat',
+            ),
+            unselectedLabelStyle: const TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'montserrat',
+            ),
+          ),
         ),
       ),
     );
