@@ -17,6 +17,12 @@ class LoadingState extends HomeState {
   LoadingState({required this.messsage});
 }
 
+class SearchLoadingState extends HomeState {
+  final String messsage;
+
+  SearchLoadingState({required this.messsage});
+}
+
 class LoadingErrorState extends HomeState {
   final String errorMessage;
 

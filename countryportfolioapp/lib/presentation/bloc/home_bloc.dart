@@ -78,6 +78,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> _searchingEvent(
       SearchingEvent event, Emitter<HomeState> emit) {
-    emit(LoadingState(messsage: event.message));
+    print('search LOADING EVENT called!');
+    emit(SearchLoadingState(messsage: event.message));
   }
 }

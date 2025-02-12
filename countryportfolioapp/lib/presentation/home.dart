@@ -54,9 +54,9 @@ class _HomePageState extends State<HomePage> {
   // search starts here
   Future<void> searchPlaces(String query) async {
     if (query.isNotEmpty) {
-      print('search triggered');
       context.read<HomeBloc>().add(SearchingEvent(
-          message: 'Searching... Kindly enter full country name...'));
+          message:
+              'No country found. Kindly enter a proper country name to complete search...'));
       context.read<HomeBloc>().add(SearchCountryEvent(searchQuery: query));
       // if (_debounce?.isActive ?? false) _debounce!.cancel();
       // _debounce = Timer(const Duration(milliseconds: 300), () {
@@ -71,36 +71,38 @@ class _HomePageState extends State<HomePage> {
 
   // pagination
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-      if (_selectedIndex == 0) {
-        setState(() {
-          if (pageNumber >= 2) {
-            pageNumber -= 1;
-          } else {
-            setState(() {
-              pageNumber = 1;
-            });
-          }
-        });
-        context
-            .read<HomeBloc>()
-            .add(FetchCountryListEvent(pagecount: 10, page: pageNumber));
-      } else if (_selectedIndex == 2) {
-        setState(() {
-          if (pageNumber <= 19) {
-            pageNumber += 1;
-          } else {
-            setState(() {
-              pageNumber = 20;
-            });
-          }
-        });
-        context
-            .read<HomeBloc>()
-            .add(FetchCountryListEvent(pagecount: 10, page: pageNumber));
-      }
-    });
+    setState(
+      () {
+        _selectedIndex = index;
+        if (_selectedIndex == 0) {
+          setState(() {
+            if (pageNumber >= 2) {
+              pageNumber -= 1;
+            } else {
+              setState(() {
+                pageNumber = 1;
+              });
+            }
+          });
+          context
+              .read<HomeBloc>()
+              .add(FetchCountryListEvent(pagecount: 10, page: pageNumber));
+        } else if (_selectedIndex == 2) {
+          setState(() {
+            if (pageNumber <= 19) {
+              pageNumber += 1;
+            } else {
+              setState(() {
+                pageNumber = 20;
+              });
+            }
+          });
+          context
+              .read<HomeBloc>()
+              .add(FetchCountryListEvent(pagecount: 10, page: pageNumber));
+        }
+      },
+    );
   }
   //
 
@@ -288,6 +290,7 @@ class _HomePageState extends State<HomePage> {
         body: BlocConsumer<HomeBloc, HomeState>(
           buildWhen: (previous, current) {
             return current is FetchCountyListState ||
+                current is SearchLoadingState ||
                 current is SearchResultState;
           },
           listenWhen: (previous, current) {
@@ -330,7 +333,6 @@ class _HomePageState extends State<HomePage> {
             }
           },
           builder: (context, state) {
-            print('Current state: $state'); // Debugging line
             if (state is FetchCountyListState) {
               final countryProfile = state.countries;
               return SingleChildScrollView(
@@ -429,6 +431,33 @@ class _HomePageState extends State<HomePage> {
             }
             // search result display ends here
 
+            // search loading display starts here
+            if (state is SearchLoadingState) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      state.messsage,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                      width: 200,
+                      child: LinearProgressIndicator(
+                        backgroundColor: Theme.of(context).focusColor,
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
+              );
+            }
+            // search loading display ends here
+
             else {
               return Center(
                 child: CircularProgressIndicator(
@@ -470,8 +499,8 @@ class _HomePageState extends State<HomePage> {
                 label: 'Next',
               ),
             ],
-            selectedItemColor: const Color.fromRGBO(255, 206, 49, 1),
-            unselectedItemColor: Colors.grey[700],
+            selectedItemColor: Colors.red,
+            // unselectedItemColor: Colors.grey[700],
             showUnselectedLabels: true,
             selectedLabelStyle: const TextStyle(
               fontSize: 11,

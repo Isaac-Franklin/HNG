@@ -1,9 +1,9 @@
-# countryportfolioapp 
+# countryportfolioapp 🌐
 
 This is a simple app that display a collection of information about countries around the world according to https://restfulcountries.com/
 
 
-## Project setup
+## Project setup 👨🏿‍💻
 This project displays a list on countries, and on clicking any country, it displayes a few imformation about the country.
 
 - The state management in this project is the bloc state management
@@ -18,7 +18,10 @@ This project displays a list on countries, and on clicking any country, it displ
 
 - Theme customization details can be found in the theme directory (lib/theme)
 
-## Getting Started
+# App allows user to search for a country by entering the country name(Kindly note that you have to enter the full country name for and a result will display if there's any country with the given name)
+ 
+ 
+## Getting Started ✈️
 To run this application on your local machine, kindly run the following command in your terminal:
 - git clone https://github.com/Isaac-Franklin/HNG.git
 - cd countryportfolioapp
@@ -26,11 +29,11 @@ To run this application on your local machine, kindly run the following command 
 - flutter run
 
 
-## Run app on Appetize
+## Run app on Appetize 📱
 - To run app on appetize, kindly visit here: https://appetize.io/app/b_wi4kjqbaqvkq3h26yhamondu3i
 
 
-## Contribute to this project
+## Contribute to this project ➕
 - thank you for your interest in contributing to this project, kindly ready this full contribution guidlines here as well as the instruction below before contributing: 
 
 [See contribution guidelines here] (https://github.com/Isaac-Franklin/HNG/blob/main/CONTRIBUTING.md)

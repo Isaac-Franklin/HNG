@@ -27,7 +27,7 @@ class RepositoryServices {
           // Parse the country info into the model
           CountryList countryData = CountryList(
             countryName: element['name'] ?? 'Not Found',
-            countryFullName: element['full_name'] ?? 'Not Found',
+            countryFullName: element['capital'] ?? 'Not Found',
             flag: element['href']['flag'] ?? 'Not Found',
           );
           countryDataList.add(countryData);
