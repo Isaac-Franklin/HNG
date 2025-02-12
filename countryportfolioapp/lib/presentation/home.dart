@@ -81,22 +81,20 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               pageNumber = 1;
             });
-            print('pageNumber is at one');
           }
         });
         context
             .read<HomeBloc>()
             .add(FetchCountryListEvent(pagecount: 10, page: pageNumber));
-        // context.read<MemberareasBloc>().add(LoadDashboardViewEvent());
-      } else if (_selectedIndex == 1) {
-        print('1 clicked');
-        // context.read<MemberareasBloc>().add(LoadSearchViewEvent());
       } else if (_selectedIndex == 2) {
-        print('pageNumber');
-        print(pageNumber);
-        print('2 clicked');
         setState(() {
-          pageNumber += 1;
+          if (pageNumber <= 19) {
+            pageNumber += 1;
+          } else {
+            setState(() {
+              pageNumber = 20;
+            });
+          }
         });
         context
             .read<HomeBloc>()
