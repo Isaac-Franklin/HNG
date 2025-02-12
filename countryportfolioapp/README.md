@@ -26,6 +26,10 @@ To run this application on your local machine, kindly run the following command 
 - flutter run
 
 
+## Run app on Appetize
+- To run app on appetize, kindly visit here: https://appetize.io/app/b_wi4kjqbaqvkq3h26yhamondu3i
+
+
 ## Contribute to this project
 - thank you for your interest in contributing to this project, kindly ready this full contribution guidlines here as well as the instruction below before contributing: 
 
