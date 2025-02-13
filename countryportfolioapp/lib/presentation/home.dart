@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _searchController = TextEditingController();
   int _selectedIndex = 0;
   late int pageNumber = 1;
-  // Timer? _debounce;
+  Timer? _debounce;
   @override
   void initState() {
     super.initState();
@@ -54,13 +54,11 @@ class _HomePageState extends State<HomePage> {
   // search starts here
   Future<void> searchPlaces(String query) async {
     if (query.isNotEmpty) {
-      context.read<HomeBloc>().add(SearchingEvent(
-          message:
-              'No country found. Kindly enter a proper country name to complete search...'));
-      context.read<HomeBloc>().add(SearchCountryEvent(searchQuery: query));
-      // if (_debounce?.isActive ?? false) _debounce!.cancel();
-      // _debounce = Timer(const Duration(milliseconds: 300), () {
-      // });
+      context.read<HomeBloc>().add(SearchingEvent(message: 'Searching...'));
+      if (_debounce?.isActive ?? false) _debounce!.cancel();
+      _debounce = Timer(const Duration(milliseconds: 300), () {
+        context.read<HomeBloc>().add(SearchCountryEvent(searchQuery: query));
+      });
     } else {
       context
           .read<HomeBloc>()
@@ -156,6 +154,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                     // padding: const EdgeInsets.all(5),
                     child: TextField(
+                      onSubmitted: (value) {
+                        searchPlaces(value);
+                      },
                       controller: _searchController,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(

@@ -30,7 +30,7 @@ To run this application on your local machine, kindly run the following command 
 
 
 ## Run app on Appetize 📱
-- To run app on appetize, kindly visit here: https://appetize.io/app/b_wi4kjqbaqvkq3h26yhamondu3i
+- To run app on appetize, kindly visit here: https://appetize.io/app/b_3m55ghhsc4eyr4ity5zgaselfq
 
 
 ## Contribute to this project ➕
