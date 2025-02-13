@@ -36,12 +36,15 @@ Click on the button on the emulator screen that says 'Tap to Start'
 Here's a link to the GitHub repository: https://github.com/Isaac-Franklin/HNG
 
 HNGBacklinks in taskzeroapp:
--- Hire a React developer: https://hng.tech/hire/react-native-developers
--- Hire a Kotlin developer: https://hng.tech/hire/Kotlin-native-developers
--- Hire a Mobile UI/UX developer: https://hng.tech/hire/mobile-ui-ux-developers
--- Hire an iOS developer: https://hng.tech/hire/ios-developers
+- Hire a React developer: https://hng.tech/hire/react-native-developers
+- Hire a Kotlin developer: https://hng.tech/hire/Kotlin-native-developers
+- Hire a Mobile UI/UX developer: https://hng.tech/hire/mobile-ui-ux-developers
+- Hire an iOS developer: https://hng.tech/hire/ios-developers
 
 --------------------------------------------------------------
+
+## Country details search app
+- Kindly see app README and other personalized app details here: https://github.com/Isaac-Franklin/HNG/tree/main/countryportfolioapp
 
 
 
