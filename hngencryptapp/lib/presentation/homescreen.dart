@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-            "Boss do the calms! You've not filled the form properly.",
+            "You've not filled the form properly.",
           ),
         ),
       );
