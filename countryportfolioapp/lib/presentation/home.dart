@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   late int pageNumber = 1;
   Timer? _debounce;
+  String selectedLanguage = "English";
   @override
   void initState() {
     super.initState();
@@ -193,19 +194,50 @@ class _HomePageState extends State<HomePage> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        const Text(
-                                          'Language Selection',
-                                          // style: ,
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Languages',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleSmall
+                                                  ?.copyWith(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                            ),
+                                            IconButton(
+                                              color: Colors.grey,
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                              icon: const Icon(Icons.cancel),
+                                            ),
+                                          ],
                                         ),
-                                        const SizedBox(height: 16.0),
-                                        const Text(
-                                            'All Languages will display here'),
-                                        const SizedBox(height: 16.0),
-                                        SizedBox(
-                                          height: 60,
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                        )
+
+                                        // Country languages
+                                        Languageoptions(
+                                          languageselection: 'English',
+                                          selectedLanguage: selectedLanguage,
+                                        ),
+                                        Languageoptions(
+                                          languageselection: 'French',
+                                          selectedLanguage: selectedLanguage,
+                                        ),
+                                        Languageoptions(
+                                          languageselection: 'Spanish',
+                                          selectedLanguage: selectedLanguage,
+                                        ),
+                                        Languageoptions(
+                                          languageselection: 'Beautches',
+                                          selectedLanguage: selectedLanguage,
+                                        ),
+                                        Languageoptions(
+                                          languageselection: 'Ex',
+                                          selectedLanguage: selectedLanguage,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -516,6 +548,32 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class Languageoptions extends StatelessWidget {
+  final String languageselection;
+  const Languageoptions({
+    super.key,
+    required this.selectedLanguage,
+    required this.languageselection,
+  });
+
+  final String selectedLanguage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(languageselection),
+        Radio(
+          value: languageselection,
+          groupValue: selectedLanguage,
+          onChanged: (value) {},
+        ),
+      ],
     );
   }
 }
