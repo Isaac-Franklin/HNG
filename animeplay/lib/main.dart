@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'presentation/elementanimation.dart';
 import 'presentation/homepage.dart';
-// import 'presentation/pagetwo.dart';
 
 void main() {
   runApp(
@@ -22,7 +20,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: View3DElement(),
+      // home: View3DElement(),
+      home: HomePage(),
     );
   }
 }

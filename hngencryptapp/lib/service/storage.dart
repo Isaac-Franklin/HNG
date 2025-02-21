@@ -7,9 +7,7 @@ class EncryptionHistory {
     final prefs = await SharedPreferences.getInstance();
     // String? encryptedText = prefs.getString(secretKey);
     String? encryptedTextValue = prefs.getString(secretKey);
-    if (encryptedTextValue != null) {
-      return DecryptData.decryptAES(encryptedTextValue, secretKey);
-    }
-    return null;
+    return DecryptData.decryptAES(encryptedTextValue!, secretKey);
+      return null;
   }
 }

@@ -3,9 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<!-- 3D play setting -->
-	<key>io.flutter.embedded_views_preview</key><true />
-	<!--  -->
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Animeplay</string>

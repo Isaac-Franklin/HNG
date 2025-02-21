@@ -8,13 +8,10 @@ class DecryptData {
     final prefs = await SharedPreferences.getInstance();
 
     String? storedValue = prefs.getString(secretKey);
-    if (storedValue == null) {
-      return 'Kpele, wrong Secret Key. Kindly try again!';
-    }
     print(userEncryptedText);
 
     // Split the stored value into IV and encrypted text
-    List<String> parts = storedValue.split('_');
+    List<String> parts = storedValue!.split('_');
     if (parts.length != 2) {
       return 'Invalid stored data format!';
     }
